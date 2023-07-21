@@ -1,0 +1,63 @@
+<div class="mt-4">
+  <form class="form-inline my-2 my-lg-0 d-flex mx-2">
+    <h2 class="text-3xl my-4">Books List</h2>
+    <span class="text-xl">Search by title:</span>
+    <div class="flex">
+      <input
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-4/12 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        type="search"
+        [(ngModel)]="searchTerm"
+        name="searchTerm"
+        aria-label="Search"
+        (keyup)="search()"
+      />
+      <button
+        (click)="add()"
+        class="mx-2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+      >
+        Add
+      </button>
+    </div>
+  </form>
+  <table class="w-full p-4 text-sm text-left text-gray-500 dark:text-gray-400">
+    <thead
+      class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
+    >
+      <tr>
+        <th scope="col" class="px-6 py-3">ID</th>
+        <th scope="col" class="px-6 py-3">Title</th>
+        <th scope="col" class="px-6 py-3">Author</th>
+        <th scope="col" class="px-6 py-3">Editor</th>
+        <th scope="col" class="px-6 py-3">Publish Date</th>
+        <th scope="col" class="px-6 py-3"></th>
+        <th scope="col" class="px-6 py-3"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
+        *ngFor="let book of searchResult"
+      >
+        <td class="px-6 py-4">{{ book.id }}</td>
+        <td class="px-6 py-4">{{ book.title }}</td>
+        <td class="px-6 py-4">{{ book.author }}</td>
+        <td class="px-6 py-4">{{ book.editor }}</td>
+        <td class="px-6 py-4">{{ book.publishDate }}</td>
+        <td class="px-6 py-4">
+          <button type="button" class="btn btn-primary" (click)="edit(book)">
+            Edit
+          </button>
+        </td>
+        <td>
+          <button
+            type="button"
+            class="btn btn-primary"
+            (click)="delete(book.id)"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
