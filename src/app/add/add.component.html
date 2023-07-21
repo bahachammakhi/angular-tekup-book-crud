@@ -1,0 +1,58 @@
+<h2 class="text-3xl my-4">Add a book</h2>
+<form #f="ngForm">
+  <div class="grid gap-6 mb-6 md:grid-cols-2 p-4">
+    <div>
+      <label for="" class="block mb-2 text-sm font-medium text-gray-900"
+        >ID</label
+      >
+      <input
+        type="text"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+        ngModel
+        name="id"
+      />
+    </div>
+    <div>
+      <label for="" class="block mb-2 text-sm font-medium text-gray-900">
+        title</label
+      >
+      <input
+        type="text"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+        ngModel
+        name="title"
+      />
+    </div>
+
+    <div>
+      <label for="" class="block mb-2 text-sm font-medium text-gray-900">
+        Author</label
+      >
+      <input
+        type="text"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+        ngModel
+        name="author"
+      />
+    </div>
+    <div>
+      <label for="" class="block mb-2 text-sm font-medium text-gray-900">
+        Editor</label
+      >
+      <input
+        type="text"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+        ngModel
+        name="editor"
+      />
+    </div>
+  </div>
+
+  <button
+    class="mx-2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+    type="submit"
+    (click)="create(f.value)"
+  >
+    Add
+  </button>
+</form>
