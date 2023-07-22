@@ -17,21 +17,25 @@ export class ListComponent {
   constructor(private BookService: BookService, private router: Router) {}
 
   edit(book: Book) {
-    console.log('Book', book);
+    // Navigate to edit book page with specific id
     this.router.navigate(['/edit-book/' + book.id]);
   }
   add() {
+    // Navigate to add book page
     this.router.navigate(['/add-book/']);
   }
 
   delete(id: number) {
+    // Runs delete method
     const books = this.BookService.deleteOne(id);
+    // Affect the result to both data and search result
     this.data = books;
     this.searchResult = books;
   }
 
   // search by title
   search() {
+    // Search by title and insure lowercase.
     this.searchResult = this.data.filter((book) => {
       return book.title.toLowerCase().includes(this.searchTerm.toLowerCase());
     });

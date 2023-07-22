@@ -1,5 +1,9 @@
 # BooksApp
 
+This project is for the purpose of Angular Exam in TEK-UP it will include a crud that can manage books.
+
+This project uses tailwind for the styling.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.5.
 
 ## Development server

@@ -24,7 +24,9 @@ export class EditComponent {
 
   ngOnInit() {
     this.actRoute.paramMap.subscribe((params) => {
+      // Get bookId param passed from the other route.
       const id = params.get('bookId');
+      // The id needs to be number !
       const book = this.BookService.getById(Number(id));
       if (book) {
         this.book = book;
@@ -34,10 +36,12 @@ export class EditComponent {
     });
   }
   edit() {
+    // Object destructuring to insure that the id is a number. since i had an issue while putting something different then a number
     const newBook = {
       ...this.book,
       id: Number(this.book.id),
     };
+    // updates the actual book.
     this.BookService.updateOne(newBook);
     this.router.navigate(['/list']);
   }

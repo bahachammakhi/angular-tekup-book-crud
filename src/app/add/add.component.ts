@@ -12,10 +12,12 @@ export class AddComponent {
   constructor(private BookService: BookService, private router: Router) {}
 
   create(book: Book) {
+    // Ensure that the book id is a number
     const newBook = {
       ...book,
       id: Number(book.id),
     };
+    // Add the book
     this.BookService.addOne(newBook);
     this.router.navigate(['/list']);
   }
